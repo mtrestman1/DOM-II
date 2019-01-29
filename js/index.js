@@ -5,7 +5,7 @@ const logoClick = document.querySelector('.logo-heading');
       event.target.style.color = '#CCCC00';
   });
 
-const anchorTags = document.querySelectorAll('.nav-link');
+const anchorTags = document.querySelector('.nav-link');
 anchorTags.addEventListener("click", event => {
     event.preventDefault();
 });
@@ -32,12 +32,26 @@ buttonFunction[1].addEventListener('click', event => {
     alert(alertMessage = `SORRY! You Can't Actually Sign Up. We're Just a Fake Business Josh Made Up.`)
 });
 
-buttonFunction[2].addEventListener('click', event => {
-    alert(alertMessage = `SORRY! You Can't Actually Sign Up. We're Just a Fake Business Josh Made Up.`)
+buttonFunction[1].addEventListener('click', event => {
+    event.stopPropagation();
+})
+
+buttonFunction[2].addEventListener('mouseenter', event => {
+    event.target.style.display = 'none';
 });
 
-const navLinks = document.querySelectorAll('.nav-link');
-navLinks.addEventListener('scroll', event => {
-    event.target.style.color = '#CCCC00';
+const navLinks = Array.from(document.querySelectorAll('a'));
+document.addEventListener('scroll', event => {
+    navLinks.forEach(link => {
+        link.style.color = '#CCCC00';
+    })
+    
 });
+
+const textSelection = document.querySelector('header p');
+textSelection.addEventListener('select', event => {
+    event.target.style.color = 'red';
+})
+
+
 
